@@ -1,5 +1,7 @@
 <?php
-require = "SELECT id, nome, faixa_etaria, categoria, preco, quantidade
+require "../infra/conexao.php";
+
+$sql = "SELECT id, nome, faixa_etaria, categoria, preco, quantidade
         FROM Brinquedos
         ORDER BY id DESC";
 $resultado = mysqli_query($conexao, $sql);
@@ -32,7 +34,7 @@ $resultado = mysqli_query($conexao, $sql);
             <th>Ações</th>
         </tr>
 
-<<?php if ($resultado && mysqli_num_rows($resultado) > 0) { ?>
+        <?php if ($resultado && mysqli_num_rows($resultado) > 0) { ?>
             <?php while ($b = mysqli_fetch_assoc($resultado)) { ?>
                 <tr>
                     <td><?php echo $b["id"]; ?></td>
