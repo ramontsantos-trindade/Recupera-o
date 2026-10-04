@@ -1,25 +1,16 @@
 <?php
+$host = "localhost";
 
-$conexao = mysqli_connect(
+$usuario = "root";
 
-"localhost",
+$senha = "";
 
-"root",
+$banco = "Rec_brinquedos";
 
-"root",
+$conexao = new mysqli($host, $usuario, $senha, $banco);
 
-"PatinhasDB"
+if ($conexao->connect_error) {
+    die("Erro na conexão com o banco: " . $conexao->connect_error);
+};
 
-
-
-);
-
-if(!$conexao){
-
-    die("Falha na conexão: " . mysqli_connect_error());
-
-}
-
-mysqli_set_charset($conexao, "utf8");
-
-?>
+$conexao->set_charset("utf8mb4");
